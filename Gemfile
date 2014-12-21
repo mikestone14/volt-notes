@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.1.0" # specify a Ruby version
+
 gem 'volt', '0.8.26'
 
 
