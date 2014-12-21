@@ -1,0 +1,45 @@
+// Place your apps css here
+textarea {
+  height: 250px;
+  width: 100%;
+  resize: none;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  &.selected {
+    background-color: #efefef;
+  }
+  height: 20px;
+  &:first-child {
+    border-top: 1px solid #ddd;
+  }
+  td {
+    cursor: pointer;
+    padding: 10px 15px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.md {
+  margin: 0 0 20px 0;
+  height: 300px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  overflow: scroll;
+}
+#preview {
+  margin: 0 0 20px 0;
+  padding: 5px;
+  height: 200px;
+  border: 1px solid #ddd;
+  overflow: scroll;
+}

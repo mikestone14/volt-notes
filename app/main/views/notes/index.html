@@ -1,0 +1,31 @@
+<:Title>
+  Notes
+<:Body>
+  <h1>Notes</h1>
+  <div class="row">
+    <div class="col-sm-2">
+      <table>
+        <tr>
+          <td e-click="new_note"><p>Add Note</p></td>
+          <td></td>
+        </tr>
+        {{ _notes.each do |note| }}
+          <tr class="{{ if params._index.or(0).to_i == index}}selected{{end}}">
+            <td e-click="params._index = index"
+              onclick="setTimeout(function() {
+              $('.md').html(markdown.toHTML($('.note-body').text())) }, 500)"><p class="{{if params._index.or(0).to_i == index}}selected{{end}}">{{ note.title }}</p></td>
+            <td><a class="text-danger"
+                e-click="remove_note(note)">X</a></td>
+          </tr>
+        {{ end }}
+      </table>
+    </div>
+    <div class="col-sm-10">
+      <div class="md" e-click="edit_note(params._index.or(0))"></div>
+      <script src="lib/marked.js"></script>
+      {{ if current_note }}
+        <p class="note-body" style="display:
+        none;">{{ current_note.body}}</p>
+      {{ end }}
+    </div>
+  </div>

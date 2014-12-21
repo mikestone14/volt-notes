@@ -1,0 +1,39 @@
+<:Title>
+  Notes
+<:Body>
+  <h1>Notes</h1>
+  <div class="row">
+    <div class="col-sm-2">
+      <table>
+        <tr>
+          <td><input value="{{page._note_title}}" type="text" placeholder="Title"
+          class="form-control" autofocus="true" tabindex=1></td>
+          <td><a class="text-success" e-click="add_note" tabindex=3>Add</td>
+        </tr>
+        {{ store._notes.each do |note| }}
+          <tr class="{{ if params._index.or(0).to_i == index}}selected{{end}}">
+            <td e-click="visit_index(index)"
+              onclick="setTimeout(function() {
+              $('.md').html(markdown.toHTML($('.note-body').text())) }, 500)"><p class="{{if params._index.or(0).to_i == index}}selected{{end}}">{{ note.title }}</p></td>
+            <td><a class="text-danger"
+                e-click="remove_note(note)">X</a></td>
+          </tr>
+        {{ end }}
+      </table>
+    </div>
+    <div class="col-sm-10">
+      <textarea class="md"
+        value="{{page._note_body}}" tabindex=2
+        oninput="$('#preview').html(markdown.toHTML(this.value))">{{page._note_body}}</textarea>
+      <script src="lib/marked.js"></script>
+      {{ if current_note }}
+        <p class="note-body" style="display:
+        none;">{{ current_note.body}}</p>
+      {{ end }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10" id="preview">
+    </div>
+  </div>
