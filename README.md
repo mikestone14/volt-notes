@@ -1,3 +1,12 @@
-# Start your docs here.
+# To run locally
 
-# See Volt docs at https://github.com/voltrb/volt/blob/master/Readme.md
+In the terminal:
+````
+  $ gem install volt
+  $ git clone git@github.com:mikestone14/volt-notes.git
+  $ cd volt-notes
+  $ bundle exec volt server
+````
+
+Visit localhost:3000
+
